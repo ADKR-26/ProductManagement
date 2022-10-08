@@ -5,9 +5,9 @@ import { Button , Input, Form, Row, Select, message, Switch} from 'antd'
 
 function AddData() {
 
-  const success = () => {
-    message.success('This is a success message');
-  };
+  // const success = () => {
+  //   message.success('This is a success message');
+  // };
 
     const onFinish=(e)=>{
 
@@ -42,7 +42,9 @@ function AddData() {
           onFinish={onFinish} 
           layout='vertical'>
             <Row>
-            <Form.Item name="ProductCode" label="Product Code" rules={[
+            <Form.Item name="ProductCode" 
+            label="Product Code" 
+            rules={[
               
               {
                 whitespace:true,
@@ -54,7 +56,7 @@ function AddData() {
 
               },{
                 min:4,
-                message:"Code must be grster than 3 digit"
+                message:"Code must be greater than 3 digit"
               }
             ]}>
              <Input style={{width:"400px",height:"50px"}} placeholder='Product Code' />
@@ -81,11 +83,11 @@ function AddData() {
                 
               },{
                 pattern: new RegExp (/^[A-Za-z]+$/),
-                message: "Wrong format!"
+                message: "Wrong format"
 
               },{
                 min:3,
-                message:"Name must be grster than 2 letter"
+                message:"Name must be greater than 3 letter"
               }
             ]}>
               <Input  style={{width:"595px",height:"50px"}} placeholder='Name'/>
@@ -98,11 +100,11 @@ function AddData() {
                 
               },{
                 pattern: new RegExp(/^\d+$/g),
-                message: "Wrong format!"
+                message: "Quantity must be in numbers"
 
               },{
                 min:1,
-                message:"quantiiy must be more than 1"
+                message:"Quantity must be more than 1"
               }
             ]}>
               <Input style={{width:"400px",height:"50px"}} placeholder='Quantity'/>
@@ -115,15 +117,15 @@ function AddData() {
                 
               },{
                 pattern: new RegExp(/^\d+$/g),
-                message: "Wrong format!"
+                message: "Price must be number"
 
               }
             ]}>
               <Input style={{width:"400px",height:"50px"}} placeholder='Price'/>
             </Form.Item>
             <Form.Item>
-            <Button type='primary' htmlType='reset' shape='round' style={{color:"darkgray", backgroundColor:"grey",width:"175px" ,height:"40px"}}>Cancel</Button>
-              <Button type='primary' htmlType='submit' shape='round' style={{marginLeft:"20px",width:"175px" ,height:"40px"}}>Submit</Button>
+            <Button type='primary' htmlType='reset' shape='round' style={{color:"darkgray", backgroundColor:"grey",width:"160px" ,height:"50px"}}>Cancel</Button>
+              <Button type='primary' htmlType='submit' shape='round' style={{marginLeft:"20px",width:"160px" ,height:"50px"}}>Submit</Button>
             </Form.Item>
 
             
