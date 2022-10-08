@@ -10,10 +10,17 @@ function AddData() {
   };
 
     const onFinish=(e)=>{
+
+      let status
+      if(e.status)
+       status="active"
+      else
+      status="Inactive"
+
         let state={
          code:e.ProductCode,
          name:e.Name,
-         status:e.status,
+         status:status,
          qty:e.Quantity,
          price:e.Price,
          date:Date()
@@ -61,12 +68,7 @@ function AddData() {
 
               ]}
              >
-            {/* <Switch checkedChildren="Active" unCheckedChildren="InActive" defaultChecked /> */}
-    
-              <Select style={{width:"150px"}}>
-                <Select.Option style={{color:"orange"}}  shape='round' value="Active"><b>Active</b></Select.Option>
-                <Select.Option style={{color:"red"}} value="Inactive"><b>InActive</b></Select.Option>
-              </Select>
+            <Switch checkedChildren="Active" unCheckedChildren="InActive" defaultChecked />
               </Form.Item>
             </Row>
             
@@ -99,9 +101,6 @@ function AddData() {
                 message: "Wrong format!"
 
               },{
-                max:100,
-                message:"qty shoild be less thab 100"
-              },{
                 min:1,
                 message:"quantiiy must be more than 1"
               }
@@ -130,116 +129,6 @@ function AddData() {
             
           </Form>
         </div>
-
-
-            {/* <div>
-                <Form
-                onFinish={onFinish}
-                name='basic'
-                labelCol={{
-                    span: 8,
-                }}
-                wrapperCol={{
-                    span:10
-                }}>
-
-                <Form.Item
-                label='Product Code'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter product code",
-                    },
-                    {
-                        type:'number',
-                        message:'Enter a valid Code'
-                    },
-                    {
-                        maxLength:4,
-                        message:'EL'
-                        
-                    }
-                ]}
-                >
-                    <Input style={{width:"400px",height:"50px"}} placeholder='Product Code'/>
-                </Form.Item>
-
-                
-
-                <Form.Item
-                label='Product name'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter product name"
-                    },
-                ]}
-                >
-                    <Input/>
-                </Form.Item>
-
-                
-
-                <Form.Item
-                label='Product Quantity'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter product quantity"
-                    },
-                ]}
-                >
-                    <Input/>
-                </Form.Item>
-
-
-                <Form.Item
-                label='Product price'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter product code"
-                    },
-                ]}
-                >
-                    <Input/>
-                </Form.Item>
-
-                
-
-                <Form.Item
-                label='Status'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter product status"
-                    },
-                ]}
-                >
-                    <Switch checkedChildren="Active" unCheckedChildren="Inactive" defaultChecked />
-                </Form.Item>
-
-                
-
-                <Form.Item
-                label='Product data'
-                rules={[
-                    {
-                        required:true,
-                        message:"Please enter date"
-                    },
-                ]}
-                >
-                    <Input/>
-                </Form.Item>
-
-                <Button type="primary" 
-                htmlType="submit" >
-                     Submit
-                </Button>
-
-                </Form>
-            </div> */}
         </div>
     )
   }
