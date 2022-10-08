@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import'./addData.css'
 import { Button , Input, Form, Row, Select, message, Switch} from 'antd'
 
 function AddData() {
